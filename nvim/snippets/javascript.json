@@ -1,0 +1,67 @@
+{
+  "arrowFunction": {
+    "prefix": ["fn", "arrowFunction"],
+    "body": ["($1) => { $0 }"],
+    "description": "Boilerplate syntax for an arrow function"
+  },
+  "arrowFunctionReturningObject": {
+    "prefix": ["fno", "arrowFunctionReturnsObject"],
+    "body": ["($1) => ({ $0 })"],
+    "description": "Boilerplate syntax for an anonymous function that returns an object"
+  },
+  "namedFunction": {
+    "prefix": ["nfn", "namedFunction"],
+    "body": ["function $1($2) { $0 }"],
+    "description": "Boilerplate syntax for a named function"
+  },
+  "singleLineArrowFunction": {
+    "prefix": ["fnl", "singleLineArrowFunction"],
+    "body": ["($1) => $0 "],
+    "description": "Boilerplate syntax for an single line anonymous function"
+  },
+  "exportDefaultNamedFunction": {
+    "prefix": ["edf", "exportDefaultNamedFunction"],
+    "body": ["export default function $1($2) { $0 }"],
+    "description": "Boilerplate syntax for an export default named function"
+  },
+  "exportDefaultObject": {
+    "prefix": ["edo", "exportDefaultObject"],
+    "body": ["export default { $0 }"],
+    "description": "Boilerplate syntax for an export default object"
+  },
+  "fetch": {
+    "prefix": ["fetch"],
+    "body": [
+      "fetch(\"$1\", {",
+      "  method: \"$2\",",
+      "  headers: {",
+      "    \"Content-Type\":  \"application/json\",",
+      "  },",
+      "  body: JSON.stringify({",
+      "    $0",
+      "  }),",
+      "})"
+    ],
+    "description": "Inserts code needed to make a request with fetch"
+  },
+  "reduceWithFunction": {
+    "prefix": ["reduce", "rwf"],
+    "body": ["reduce(($1, $2) => { $0 })"],
+    "description": "Inserts a reduce function call with a function body"
+  },
+  "reduceWithObject": {
+    "prefix": ["rwo"],
+    "body": ["reduce(($1, $2) => ({ $0 }))"],
+    "description": "Inserts a reduce function call with a function body"
+  },
+  "regexMatchAll": {
+    "prefix": ["regexMatchAll", "matchAll", "match"],
+    "body": ["[...$1.matchAll(/$2/g)]"],
+    "description": "Inserts array of matches from expanded matchAll function including capture groups"
+  },
+  "unique": {
+    "prefix": ["unique"],
+    "body": ["filter((value, index, array) => array.indexOf(value) === index)"],
+    "description": "Inserts filter, indexOf, calls to unique an array"
+  }
+}

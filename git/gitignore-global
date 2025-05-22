@@ -1,0 +1,9 @@
+# Ignore custom neovim config
+.neovim.json
+
+# Ignore these if Mac creates them
+.DS_Store
+
+# Docker data
+mysql-data
+swap-pane
