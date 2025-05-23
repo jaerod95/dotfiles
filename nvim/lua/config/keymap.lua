@@ -1,7 +1,7 @@
-local functions = require("config.functions")
-local harpoon_mark = require("harpoon.mark")
-local harpoon_ui = require("harpoon.ui")
-local telescope = require("telescope.builtin")
+-- local functions = require("config.functions")
+-- local harpoon_mark = require("harpoon.mark")
+-- local harpoon_ui = require("harpoon.ui")
+-- local telescope = require("telescope.builtin")
 
 local map = function(mode, keys, func, desc, expr, silent, remap)
     if not expr then

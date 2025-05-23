@@ -1,5 +1,3 @@
-mkdir -p ~/.config/nvim
-
 ln -sf $PWD/tmux.conf ~/.tmux.conf
 ln -sf $PWD/aerospace.toml ~/.aerospace.toml
 ln -sf $PWD/git/gitconfig ~/.gitconfig
