@@ -1,6 +1,5 @@
 cask 'nikitabobko/tap/aerospace'
 cask 'docker'
-cask 'google-chrome'
 cask 'gpg-suite-no-mail'
 cask 'kitty'
 cask 'logi-options-plus'
