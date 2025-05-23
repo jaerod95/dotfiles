@@ -1,4 +1,6 @@
+ln -sf $PWD/kitty.conf ~/.config/kitty/kitty.conf
 ln -sf $PWD/tmux.conf ~/.tmux.conf
+
 ln -sf $PWD/aerospace.toml ~/.aerospace.toml
 ln -sf $PWD/git/gitconfig ~/.gitconfig
 ln -sf $PWD/nvim ~/.config/nvim

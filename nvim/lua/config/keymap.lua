@@ -16,8 +16,8 @@ local map = function(mode, keys, func, desc, expr, silent, remap)
     vim.keymap.set(mode, keys, func, {desc = desc, silent = silent, expr = expr, remap = remap})
 end
 
--- map("n", "<leader>qq", ":qa<CR>", "[Q]uit All")
--- map("n", "<leader>q!", ":qa!<CR>", "[Q]uit All")
+map("n", "<leader>qq", ":Ex<CR>", "[Q]uit file")
+map("n", "<leader>q!", ":qa!<CR>", "[Q]uit All")
 
 -- map("n", "<leader>wh", "<C-w>h", "[W]indow [h] move one window to the left")
 -- map("n", "<leader>w,", "<C-w>H", "[W]indow [<] move the window to far right")
