@@ -1,15 +1,10 @@
 alias dotfiles="cd ~/.dotfiles"
 alias myip="ifconfig en0 | awk '\$1 == \"inet\" {print \$2}'"
 alias scripts="jq '.scripts' package.json"
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias uuid="uuidgen | awk '{print tolower(\$0)}' | pbcopy && pbpaste | cat -"
 alias vim="nvim"
 alias vi="nvim"
 alias vim-benchmarks="nvim --startuptime /dev/stdout +qall;time vim +q;"
-alias download-m4b-tool='docker pull sandreas/m4b-tool:latest'
-alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
-alias m4b-tool-merge='m4b-tool merge -v --jobs=6 --output-file="output/" --batch-pattern="input/%g/%a/%s/%p - %n/"  --batch-pattern="input/%g/%a/%n/" "input/"'
-alias yt-dl='docker run --rm -i -e PGID=$(id -g) -e PUID=$(id -u) -v "$(pwd)":/workdir:rw mikenye/youtube-dl'
 
 if [ "$(command -v eza)" ]; then
     unalias -m 'll'

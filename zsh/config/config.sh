@@ -7,7 +7,6 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--height 33% --layout=reverse"
 export GPG_TTY=$(tty) # Random env variable needed for GPG commit signing
-export NODE_OPTIONS="--require $HOME/.dotfiles/noderc.js"
 
 # Initialization ------------------------------------------------------------------------------------
 if [ $commands[rbenv] ]; then eval "$(rbenv init -)"; fi
@@ -34,8 +33,6 @@ function source-directory() {
 }
 
 source ~/.dotfiles/zsh/config/aliases.sh
-source-directory ~/.dotfiles/zsh/config/aescrypt
-source-directory ~/.dotfiles/zsh/config/aws
 source-directory ~/.dotfiles/zsh/config/git
 source-directory ~/.dotfiles/zsh/config/node
 source-directory ~/.dotfiles/zsh/config/tmux

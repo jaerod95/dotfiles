@@ -10,7 +10,6 @@ fi
 source ~/.zinit/bin/zinit.zsh
 source ~/.dotfiles/zsh/p10ktheme.zsh
 
-zinit load atuinsh/atuin
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
 zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh

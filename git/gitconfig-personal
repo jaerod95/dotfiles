@@ -1,3 +1,6 @@
 [user]
   name = Jason Rodriguez
   email = jason.eli.rodriguez@gmail.com
+  signingkey = C5BA04434EA655DF
+[commit]
+  gpgsign = true
