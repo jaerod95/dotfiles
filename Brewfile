@@ -9,6 +9,7 @@ brew 'bat' # syntax highlighting for cat
 brew 'eza' # ls replacement with icons and colors
 brew 'fzf'
 brew 'gh'
+brew 'git-delta'
 brew 'jq'
 brew 'neovim'
 brew 'reattach-to-user-namespace' # copy and paste in tmux
