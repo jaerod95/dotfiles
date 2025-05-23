@@ -162,3 +162,11 @@ run = ['layout floating']
 [[on-window-detected]]
 if.window-title-regex-substring = '1Password'
 run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = ['laout floating']
