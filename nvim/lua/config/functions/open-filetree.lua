@@ -48,7 +48,7 @@ return function()
         last_window_size = width
     end
 
-    vim.cmd("DBUIClose")
+    -- vim.cmd("DBUIClose")
     vim.cmd("Neotree reveal")
     vim.cmd("set nofoldenable")
 end

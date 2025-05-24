@@ -1,11 +1,4 @@
 require("nvim-treesitter.configs").setup {
-    endwise = {
-        enable = true
-    },
-    matchup = {
-        enable = true, -- mandatory, false will disable the whole extension
-        disable = {"ruby"} -- optional, list of language that will be disabled
-    },
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = {
         "bash",
@@ -46,14 +39,9 @@ require("nvim-treesitter.configs").setup {
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = {"javascript", "typescript", "jsx", "tsx"}
+        additional_vim_regex_highlighting = {"go", "javascript", "typescript", "jsx", "tsx"}
     }
 }
-
--- https://joschua.io/posts/2023/06/22/set-up-nvim-for-astro/
--- https://phelipetls.github.io/posts/mdx-syntax-highlight-treesitter-nvim/
-vim.filetype.add({extension = {mdx = "mdx"}})
-vim.treesitter.language.register("markdown", "mdx")
 
 require("ufo").setup(
     {

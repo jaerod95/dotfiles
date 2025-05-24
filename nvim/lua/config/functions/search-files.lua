@@ -11,7 +11,7 @@ return function()
                 "--files",
                 "--hidden",
                 "--glob",
-                "!**/{.git,node_modules,.cache,.jest-cache}/*"
+                "!**/{.git,node_modules}/*"
             }
         }
     )

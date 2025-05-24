@@ -64,8 +64,8 @@ telescope.setup(
 telescope.load_extension("fzf")
 
 require("dir-telescope").setup(
-    {
-        hidden = false,
-        show_preview = false
-    }
+   {
+       hidden = false,
+       show_preview = false
+   }
 )
