@@ -29,7 +29,7 @@ require("lazy").setup(
             {"princejoogie/dir-telescope.nvim"}, -- limit telescope searches to directories
             --- Navigation Plugins
             -- {"folke/flash.nvim", event = "VeryLazy"}, -- jump to location by key combo
-            -- {"ThePrimeagen/harpoon"}, -- bookmark and jump between several files
+            {"ThePrimeagen/harpoon"}, --bookmark and jump between several files
             -- {"stevearc/oil.nvim"}, -- edit directory structure as a buffer
             -- Text Editing Plugins
             -- {"ThePrimeagen/refactoring.nvim"}, -- adds debug statements based on language, and other refactoring commands
@@ -38,19 +38,18 @@ require("lazy").setup(
             -- {"tpope/vim-fugitive"}, -- git functionality inside of vim
             -- {"tpope/vim-scriptease"}, -- open messages buffer and other helpful debugging functions
             -- {"tpope/vim-sleuth"}, -- automatically detect indentation based on the current file
-            -- {"tpope/vim-surround"}, -- change and add quotes and braces to selection
+            {"tpope/vim-surround"}, -- change and add quotes and braces to selection
             -- Plugins for auto-closing blocks, tags, quotes, etc
-            -- {"RRethy/nvim-treesitter-endwise"}, -- adds end in ruby
             -- {"andymass/vim-matchup"}, -- extends vims % jumping to language specific keywords like end
-            -- {"echasnovski/mini.pairs"}, -- automatically adds character pairs for quotes and braces etc.
-            -- {"windwp/nvim-ts-autotag", opts = {}}, -- automatically adds html/jsx end tags
+            {"echasnovski/mini.pairs"}, -- automatically adds character pairs for quotes and braces etc.
+            {"windwp/nvim-ts-autotag", opts = {}}, -- automatically adds html/jsx end tags
             -- Plugins for making the editor look nice
             {"catppuccin/nvim", name = "catppuccin", priority = 1000}, -- amazing looking colorscheme
             -- {"kadenbarlow/feline.nvim"}, -- amazing looking status bar
             {"kevinhwang91/nvim-ufo", dependencies = {"kevinhwang91/promise-async"}}, -- makes fold look modern
             -- {"lewis6991/gitsigns.nvim"}, -- git integration in buffers
             {"luukvbaal/statuscol.nvim"}, -- allows clicking of folds to expand and collapse
-            -- {"maxmellon/vim-jsx-pretty"}, -- make jsx look nice
+            {"maxmellon/vim-jsx-pretty"}, -- make jsx look nice
             -- {"mbbill/undotree"}, -- visually go back through edits
             -- {"norcalli/nvim-colorizer.lua"}, -- highlight hex and colors in buffers
             {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = {"MunifTanjim/nui.nvim"}}, -- filetree sidebar
@@ -59,17 +58,17 @@ require("lazy").setup(
             -- IDE Functionality
             -- {"Exafunction/codeium.vim", tag = "1.8.30"}, -- AI coding assistant
             -- {"L3MON4D3/LuaSnip"}, -- snippet engine
-            -- {"folke/trouble.nvim", opts = {}}, -- view lsp diagnostics across projects
-            -- {"hrsh7th/cmp-buffer"}, -- adds a nvim-cmp source for text in the buffer
-            -- {"hrsh7th/cmp-nvim-lsp"}, -- adds a nvim-cmp source for the lsp server
-            -- {"hrsh7th/cmp-path"}, -- adds a nvim-cmp source for file paths
-            -- {"hrsh7th/nvim-cmp"}, -- completion plugin providing the dropdown list of options while coding
+            {"folke/trouble.nvim", opts = {}}, -- view lsp diagnostics across projects
+            {"hrsh7th/cmp-buffer"}, -- adds a nvim-cmp source for text in the buffer
+            {"hrsh7th/cmp-nvim-lsp"}, -- adds a nvim-cmp source for the lsp server
+            {"hrsh7th/cmp-path"}, -- adds a nvim-cmp source for file paths
+            {"hrsh7th/nvim-cmp"}, -- completion plugin providing the dropdown list of options while coding
             -- {"kristijanhusak/vim-dadbod-completion", ft = {"sql", "mysql", "plsql"}}, -- lsp for sql queries
             -- {"kristijanhusak/vim-dadbod-ui"}, -- ui for vim-dadbod which is a database viewer
-            -- {"mhartington/formatter.nvim"}, -- automatic code formatting
-            -- {"neovim/nvim-lspconfig"}, -- repository of neovim lsp configurations
+            {"mhartington/formatter.nvim"}, -- automatic code formatting
+            {"neovim/nvim-lspconfig"}, -- repository of neovim lsp configurations
             {"nvim-treesitter/nvim-treesitter"}, -- syntax highlighting
-            -- {"nvim-treesitter/nvim-treesitter-context"}, -- shows code context at top of buffer
+            {"nvim-treesitter/nvim-treesitter-context"}, -- shows code context at top of buffer
             -- {"saadparwaiz1/cmp_luasnip"}, -- adds a nvim-cmp source for snippets
             -- {"sindrets/diffview.nvim"}, -- used for in editor github PR reviews
             -- {"tpope/vim-dadbod"}, -- database viewer

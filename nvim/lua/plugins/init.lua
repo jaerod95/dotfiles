@@ -6,7 +6,7 @@
 -- require("plugins.formatter")
 -- require("plugins.lsp")
 -- require("plugins.oil")
--- require("plugins.pairs")
+require("plugins.pairs")
 -- require("plugins.refactoring")
 -- require("plugins.snippets")
 -- require("plugins.splitjoin")

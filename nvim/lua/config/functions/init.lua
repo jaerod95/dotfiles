@@ -30,7 +30,7 @@ return {
 --  open_github_pr_comment = require("config.functions.open-github-pr-comment"),
 --  open_quickfix_of_search_term = require("config.functions.open-quickfix-of-search-term"),
     open_terminal = require("config.functions.open-terminal"),
---  run_import_code_action = require("config.functions.run-import-code-action"),
+   run_import_code_action = require("config.functions.run-import-code-action"),
 --  search_buffers = require("config.functions.search-buffers"),
 --  search_dotfiles = require("config.functions.search-dotfiles"),
    search_files = require("config.functions.search-files"),
