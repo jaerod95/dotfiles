@@ -63,15 +63,15 @@ require("lazy").setup(
             {"hrsh7th/cmp-nvim-lsp"}, -- adds a nvim-cmp source for the lsp server
             {"hrsh7th/cmp-path"}, -- adds a nvim-cmp source for file paths
             {"hrsh7th/nvim-cmp"}, -- completion plugin providing the dropdown list of options while coding
-            -- {"kristijanhusak/vim-dadbod-completion", ft = {"sql", "mysql", "plsql"}}, -- lsp for sql queries
-            -- {"kristijanhusak/vim-dadbod-ui"}, -- ui for vim-dadbod which is a database viewer
+            {"kristijanhusak/vim-dadbod-completion", ft = {"sql", "mysql", "plsql"}}, -- lsp for sql queries
+            {"kristijanhusak/vim-dadbod-ui"}, -- ui for vim-dadbod which is a database viewer
             {"mhartington/formatter.nvim"}, -- automatic code formatting
             {"neovim/nvim-lspconfig"}, -- repository of neovim lsp configurations
             {"nvim-treesitter/nvim-treesitter"}, -- syntax highlighting
             {"nvim-treesitter/nvim-treesitter-context"}, -- shows code context at top of buffer
             -- {"saadparwaiz1/cmp_luasnip"}, -- adds a nvim-cmp source for snippets
             -- {"sindrets/diffview.nvim"}, -- used for in editor github PR reviews
-            -- {"tpope/vim-dadbod"}, -- database viewer
+            {"tpope/vim-dadbod"}, -- database viewer
             -- {"williamboman/mason-lspconfig.nvim"}, -- bridges mason and nvim-lspconfig and makes working with them easy
             -- {"williamboman/mason.nvim"} -- package manager for installing lsp servers, linters, formatters etc
         },

@@ -36,5 +36,6 @@ source ~/.dotfiles/zsh/config/aliases.sh
 source-directory ~/.dotfiles/zsh/config/git
 source-directory ~/.dotfiles/zsh/config/node
 source-directory ~/.dotfiles/zsh/config/tmux
+source-directory ~/.dotfiles/zsh/config/work
 
 bindkey -s ^f "~/.dotfiles/zsh/scripts/open-tmux-session.sh\n"

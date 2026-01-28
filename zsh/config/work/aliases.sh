@@ -1,0 +1,5 @@
+alias cdd="cd ~/Documents/work/runway"
+alias sw="cd ~/Documents/work/runway && make start-frontend"
+alias sb="cd ~/Documents/work/runway && make start-backend && docker compose logs -f api"
+alias sbb="cd ~/Documents/work/runway && make stop-backend"
+alias ss="~/Documents/work/startup.sh"

@@ -1,2 +1,6 @@
 [user]
   name = Jason Rodriguez
+  email = jason.rodriguez@runway.com
+  signingkey = 242BFA3414A867BB
+[commit]
+  gpgsign = true
