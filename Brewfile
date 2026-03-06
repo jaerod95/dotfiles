@@ -1,7 +1,6 @@
 cask 'nikitabobko/tap/aerospace'
-cask 'docker'
+cask 'orbstack'
 cask 'gpg-suite-no-mail'
-cask 'kitty'
 cask 'logi-options-plus'
 cask 'tableplus'
 
