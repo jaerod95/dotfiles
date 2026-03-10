@@ -32,6 +32,8 @@ function source-directory() {
   fi
 }
 
+export NODE_OPTIONS="--require $HOME/.dotfiles/noderc.js"
+
 source ~/.dotfiles/zsh/config/aliases.sh
 source-directory ~/.dotfiles/zsh/config/git
 source-directory ~/.dotfiles/zsh/config/node

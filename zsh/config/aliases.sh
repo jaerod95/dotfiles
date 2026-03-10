@@ -6,6 +6,9 @@ alias vim="nvim"
 alias vi="nvim"
 alias vim-benchmarks="nvim --startuptime /dev/stdout +qall;time vim +q;"
 
+# Fix stupid tmux bug
+alias tmux="tmux -f ~/.tmux.conf"
+
 if [ "$(command -v eza)" ]; then
     unalias -m 'll'
     unalias -m 'l'

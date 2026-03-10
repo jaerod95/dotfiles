@@ -86,3 +86,6 @@
   path = ~/.dotfiles/git/gitconfig-personal
 [includeIf "gitdir:**/work/**/.git"]
   path = ~/.dotfiles/git/gitconfig-work
+[user]
+	name = Jason Rodriguez
+	email = jason@applausehq.com

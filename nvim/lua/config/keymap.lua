@@ -1,4 +1,4 @@
- local functions  = require("config.functions")
+--  local functions  = require("config.functions")
 -- local harpoon_mark = require("harpoon.mark")
 -- local harpoon_ui = require("harpoon.ui")
 -- local telescope = require("telescope.builtin")
@@ -21,13 +21,13 @@ map("n", "<leader>q!", ":qa!<CR>", "[Q]uit All")
 
 -- Neotree
 map("n", "<leader>tc", ":Neotree close<CR>:set nofoldenable<CR>", "[T]oggle filetree [H]ide")
-map("n", "<leader>tt", functions.open_filetree, "[T]oggle file[T]ree")
+-- map("n", "<leader>tt", functions.open_filetree, "[T]oggle file[T]ree")
 map("n", "<leader>tw", "<C-w>w", "[T]oggle Neotree [W]indow focus")
 map("n", "<leader>tg", ":Neotree git_status<CR>:set nofoldenable<CR>", "[T]oggle filetree open [G]it status")
 -- Telescope
-map("n", "<leader>ff", functions.search_files, "[F]ind [F]iles")
+-- map("n", "<leader>ff", functions.search_files, "[F]ind [F]iles")
 map("n", "<leader>fd", ":Telescope dir find_files<CR>", "[F]ind  files in a [D]irectory")
-map("n", "<leader>fp", functions.search_project_files, "search through [P]roject [F]iles")
+-- map("n", "<leader>fp", functions.search_project_files, "search through [P]roject [F]iles")
 
 -- Window management
 map("n", "<leader>wh", "<C-w>h", "[W]indow [h] move one window to the left")
@@ -40,8 +40,8 @@ map("n", "<leader>wo", "<C-w>o", "[W]indow close all [O]thers")
 -- map("n", "<leader>ws", "<C-w>x", "[W]indow [S]wap")
 -- map("n", "<leader>wu", "<C-^>", "[W]indow [U]ndo jump")
 map("n", "<leader>w=", "<C-w>=", "Resize [W]indows [=] equally")
-map("n", "<leader>w/", functions.split_window_vertically, "[W]indow split [/]vertically")
-map("n", "<leader>w-", functions.split_window_horizontally, "[W]indow split [-]horizontally")
+-- map("n", "<leader>w/", functions.split_window_vertically, "[W]indow split [/]vertically")
+-- map("n", "<leader>w-", functions.split_window_horizontally, "[W]indow split [-]horizontally")
 
 -- map("n", "<leader>tn", ":TSContextToggle<CR>", "[T]oggle [N]ested treesitter context")
 -- map("n", "<leader>tu", vim.cmd.UndotreeToggle, "[T]oggle [U]ndotree")
@@ -159,7 +159,7 @@ map("n", "<leader>w-", functions.split_window_horizontally, "[W]indow split [-]h
 -- map("n", "<leader>h3", ":lua require('harpoon.ui').nav_file(3)<CR>", "[H]arpoon - [3]rd file")
 -- map("n", "<leader>h4", ":lua require('harpoon.ui').nav_file(4)<CR>", "[H]arpoon - [4]th file")
 
-map("n", "<leader>ot", functions.open_terminal, "[O]pen [T]erminal")
+-- map("n", "<leader>ot", functions.open_terminal, "[O]pen [T]erminal")
 
 -- map("v", "J", ":m '>+1<CR>gv=gv", "move selected lines down [J]")
 -- map("v", "K", ":m '<-2<CR>gv=gv", "move selected lines up [K]")
@@ -195,7 +195,7 @@ map("n", "<leader>ot", functions.open_terminal, "[O]pen [T]erminal")
             map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", "[G]o to [D]eclaration")
             map("n", "gm", "<cmd>lua vim.lsp.buf.implementation()<cr>", "[G]o to I[M]plementation")
             map("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "[G]o to [T]ype [D]efinition")
-            map("n", "gi", functions.run_import_code_action, "[G]enerate [I]mport")
+            -- map("n", "gi", functions.run_import_code_action, "[G]enerate [I]mport")
             map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP Show Hover")
             map("n", "H", "<cmd>lua vim.lsp.buf.signature_help()<cr>", "LSP Show [H]elp")
             -- map("n", "grr", "<cmd>lua vim.lsp.buf.references()<cr>", "LSP [G]o to [R]efe[R]ences in quickfix list")
