@@ -1,2 +1,6 @@
 [user]
   name = Jason Rodriguez
+  email = jason@applausehq.com
+  signingkey = 1CC5A9A85E32E4F3 
+[commit]
+  gpgsign = true
