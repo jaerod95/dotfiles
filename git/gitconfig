@@ -89,4 +89,5 @@
   path = ~/.dotfiles/git/gitconfig-work
 [user]
 	name = Jason Rodriguez
-	email = jason@applausehq.com
+	email = jason.eli.rodriguez@gmail.com
+  signingkey = 1CC5A9A85E32E4F3 
