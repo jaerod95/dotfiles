@@ -65,7 +65,7 @@ require("lazy").setup(
             -- {"kristijanhusak/vim-dadbod-completion", ft = {"sql", "mysql", "plsql"}}, -- lsp for sql queries
             -- {"kristijanhusak/vim-dadbod-ui"}, -- ui for vim-dadbod which is a database viewer
             {"mhartington/formatter.nvim"}, -- automatic code formatting
-            -- {"neovim/nvim-lspconfig"}, -- repository of neovim lsp configurations
+            {"neovim/nvim-lspconfig"}, -- repository of neovim lsp configurations
             {"nvim-treesitter/nvim-treesitter"}, -- syntax highlighting
             {"nvim-treesitter/nvim-treesitter-context"}, -- shows code context at top of buffer
             -- {"saadparwaiz1/cmp_luasnip"}, -- adds a nvim-cmp source for snippets
