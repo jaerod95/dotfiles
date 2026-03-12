@@ -28,7 +28,7 @@ require("lazy").setup(
             {"nvim-telescope/telescope.nvim" }, -- all things searching
             {"princejoogie/dir-telescope.nvim"}, -- limit telescope searches to directories
             --- Navigation Plugins
-            -- {"folke/flash.nvim", event = "VeryLazy"}, -- jump to location by key combo
+            {"folke/flash.nvim", event = "VeryLazy"}, -- jump to location by key combo
             -- {"ThePrimeagen/harpoon"}, --bookmark and jump between several files
             -- {"stevearc/oil.nvim"}, -- edit directory structure as a buffer
             -- Text Editing Plugins
@@ -53,7 +53,7 @@ require("lazy").setup(
             {"norcalli/nvim-colorizer.lua"}, -- highlight hex and colors in buffers
             {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = {"MunifTanjim/nui.nvim"}}, -- filetree sidebar
             {"nvim-tree/nvim-web-devicons"}, -- amazing looking icons
-            -- {"pixelastic/vim-undodir-tree"}, -- fixes an issue with undo behavior with file names that are too long
+            {"pixelastic/vim-undodir-tree"}, -- fixes an issue with undo behavior with file names that are too long
             -- IDE Functionality
             -- {"Exafunction/codeium.vim", tag = "1.8.30"}, -- AI coding assistant
             -- {"L3MON4D3/LuaSnip"}, -- snippet engine

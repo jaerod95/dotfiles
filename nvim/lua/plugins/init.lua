@@ -2,7 +2,7 @@ require("plugins.catppuccin") -- enable this and comment nordic below to switch 
 -- require("plugins.cmp")
 -- require("plugins.diffview")
 -- require("plugins.dadbodui")
--- require("plugins.flash")
+require("plugins.flash")
 require("plugins.formatter")
 -- require("plugins.lsp")
 -- require("plugins.oil")
