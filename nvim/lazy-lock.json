@@ -23,5 +23,6 @@
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "b80ec2c70ec4f32571478b501218c8979fab5201" },
   "telescope.nvim": { "branch": "master", "commit": "5255aa27c422de944791318024167ad5d40aad20" },
   "vim-commentary": { "branch": "master", "commit": "64a654ef4a20db1727938338310209b6a63f60c9" },
-  "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" }
+  "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
+  "vim-undodir-tree": { "branch": "master", "commit": "f5cd1779b1a3969ba8b09a041863538b08e7ff32" }
 }
