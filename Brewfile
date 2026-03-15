@@ -4,6 +4,8 @@ cask 'gpg-suite-no-mail'
 cask 'kitty'
 cask 'logi-options-plus'
 cask 'tableplus'
+cask 'redis-insight'
+cask 'bruno'
 
 brew 'bat' # syntax highlighting for cat
 brew 'eza' # ls replacement with icons and colors
