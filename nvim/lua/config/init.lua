@@ -1,4 +1,6 @@
 require("config.options")
 require("config.project")
+require("config.jsconfig")
 require("config.lazy")
 require("config.keymap")
+require("config.commands")

@@ -1,5 +1,3 @@
 local refactoring = require("refactoring")
 
-return function()
-    refactoring.debug.cleanup({})
-end
+return function() refactoring.debug.cleanup({}) end

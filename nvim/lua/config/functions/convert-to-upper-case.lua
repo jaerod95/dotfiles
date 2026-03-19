@@ -1,4 +1,3 @@
-return function()
-    local new_word = string.gsub(vim.fn.expand("<cword>"), "%a", string.upper)
-    vim.cmd("normal ciw" .. new_word)
-end
+local to_upper_case = require("lib.strings.to-upper-case")
+
+return function() vim.cmd("normal ciw" .. to_upper_case(vim.fn.expand("<cword>"))) end

@@ -1,3 +1,1 @@
-return function(string)
-    vim.fn.setreg("*", string)
-end
+return function(string) vim.fn.setreg("*", string) end

@@ -1,3 +1,1 @@
-return function()
-    vim.cmd("set wrap! linebreak!")
-end
+return function() vim.cmd("set wrap! linebreak!") end

@@ -1,3 +1,1 @@
-return function()
-    return vim.fn["codeium#Clear"]()
-end
+return function() return vim.fn["codeium#Clear"]() end

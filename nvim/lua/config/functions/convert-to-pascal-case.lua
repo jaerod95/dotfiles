@@ -1,11 +1,3 @@
-return function()
-    local pascal_case =
-        vim.fn.expand("<cword>"):gsub("(%l)(%u)", "%1_%2"):gsub("(%d)(%u)", "%1_%2"):gsub("-", "_"):lower():gsub(
-        "_?([^_]+)",
-        function(word)
-            return string.gsub(word, "^%l", string.upper)
-        end
-    )
+local to_pascal_case = require("lib.strings.to-pascal-case")
 
-    vim.cmd("normal ciw" .. pascal_case)
-end
+return function() vim.cmd("normal ciw" .. to_pascal_case(vim.fn.expand("<cword>"))) end

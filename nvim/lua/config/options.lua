@@ -1,18 +1,21 @@
-vim.api.nvim_create_autocmd({"BufWritePre"}, {pattern = {"*"}, command = [[%s/\s\+$//e]]}) -- remove extra whitespace in file on save
-vim.api.nvim_set_option("clipboard", "unnamed") -- copy to system clipboard from vim
+vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*" }, command = [[%s/\s\+$//e]] }) -- remove extra whitespace in file on save
+vim.opt.clipboard = "unnamed" -- copy to system clipboard from vim
+vim.g.codeium_enabled = true -- can be toggled with <leader>tc
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = ","
 vim.opt.backup = false
 vim.opt.colorcolumn = "120"
-vim.api.nvim_create_autocmd({"BufEnter"}, {pattern = {"*.lua"}, command = [[syntax match spaces /  / conceal cchar= ]]})
-vim.api.nvim_create_autocmd({"BufEnter"}, {pattern = {"*.lua"}, command = [[set conceallevel=1]]})
-vim.opt.concealcursor = "nvi" -- works with the autocommand above and conceallevel option below to dispaly four spaces as two
+-- vim.api.nvim_create_autocmd({"BufEnter"}, {pattern = {"*.lua"}, command = [[syntax match spaces /  / conceal cchar= ]]})
+-- vim.api.nvim_create_autocmd({"BufEnter"}, {pattern = {"*.lua"}, command = [[set conceallevel=1]]})
+-- vim.opt.concealcursor = "nvi" -- works with the autocommand above and conceallevel option below to dispaly four spaces as two
 vim.opt.cursorline = true -- highlights the line that the cursor is on
 vim.opt.expandtab = true -- use spaces instead of tabs when pressing tab key
+-- vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.foldcolumn = "1"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
+vim.opt.guicursor = "" -- use default terminal cursor
 vim.opt.hlsearch = true -- highlight all occurances of search
 vim.opt.ignorecase = true -- ignore case when searching, works with smartcase below
 vim.opt.iskeyword:append("-")

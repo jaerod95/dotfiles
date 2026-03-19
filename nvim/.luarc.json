@@ -1,0 +1,4 @@
+{
+  "diagnostics.globals": ["vim", "hs"],
+  "workspace.library": ["${3rd}/luv/library"]
+}

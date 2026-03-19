@@ -1,3 +1,1 @@
-return function()
-    require("config.functions.copy")(vim.fn.expand("%:p"))
-end
+return function() require("config.functions.copy")(vim.fn.expand("%:p")) end

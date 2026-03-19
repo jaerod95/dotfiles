@@ -1,6 +1,3 @@
-return function()
-    local current_word = vim.fn.expand("<cword>")
-    local snake_case =
-        current_word:gsub("(%l)(%u)", "%1_%2"):gsub("(%d)(%u)", "%1_%2"):gsub("-", "_"):gsub("\\.", "_"):lower()
-    vim.cmd("normal ciw" .. snake_case)
-end
+local to_snake_case = require("lib.strings.to-snake-case")
+
+return function() vim.cmd("normal ciw" .. to_snake_case(vim.fn.expand("<cword>"))) end

@@ -1,0 +1,7 @@
+{
+  "types": {
+    "prefix": ["types"],
+    "body": ["types/index.js", "types/InputType/index.js", "types/OutputType/index.js"],
+    "description": "Default type file paths"
+  }
+}
