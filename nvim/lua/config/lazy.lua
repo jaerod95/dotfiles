@@ -51,7 +51,7 @@ require("lazy").setup({
     { "nvim-tree/nvim-web-devicons" }, -- amazing looking icons
     { "pixelastic/vim-undodir-tree" }, -- fixes an issue with undo behavior with file names that are too long
     -- IDE Functionality
-    { "Exafunction/codeium.vim", tag = "1.8.30" }, -- AI coding assistant
+    -- { "Exafunction/codeium.vim", tag = "1.8.30" }, -- AI coding assistant
     { "L3MON4D3/LuaSnip" }, -- snippet engine
     { "folke/trouble.nvim", opts = {} }, -- view lsp diagnostics across projects
     { "hrsh7th/cmp-buffer" }, -- adds a nvim-cmp source for text in the buffer

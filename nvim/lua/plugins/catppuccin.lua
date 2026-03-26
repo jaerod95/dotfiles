@@ -28,6 +28,12 @@ require("feline").setup({
 
 require("gitsigns").setup()
 
+-- Diff highlights (matched to delta theme in .gitconfig)
+vim.cmd([[hi DiffAdd guibg=#003500]])
+vim.cmd([[hi DiffChange guibg=#003500]])
+vim.cmd([[hi DiffDelete guifg=#5E0000 guibg=#5E0000]])
+vim.cmd([[hi DiffText guibg=#007E5E]])
+
 vim.cmd([[hi NotificationInfo guifg=#FFFFFF guibg=#0F111A]])
 vim.cmd([[hi NotificationWarning guifg=#FFFFFF guibg=#0F111A]])
 vim.cmd([[hi NotificationError guifg=#FFFFFF guibg=#0F111A]])
@@ -36,6 +42,6 @@ vim.cmd([[hi TelescopeBorder guibg=#0F111A]])
 vim.cmd([[hi MasonNormal guibg=#161926]])
 vim.cmd([[hi NormalFloat guibg=#161926]])
 
-for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-  vim.api.nvim_set_hl(0, group, {})
-end
+-- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+--   vim.api.nvim_set_hl(0, group, {})
+-- end

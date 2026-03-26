@@ -7,6 +7,7 @@ local telescope = require("telescope.builtin")
 
 map("n", "<leader>qq", ":qa<CR>", "[Q]uit All")
 map("n", "<leader>q!", ":qa!<CR>", "[Q]uit All")
+map("n", "<leader>ww", ":w<CR>", "[W]rite File")
 
 map("n", "<leader>wh", "<C-w>h", "[W]indow [h] move one window to the left")
 map("n", "<leader>w,", "<C-w>H", "[W]indow [<] move the window to far right")

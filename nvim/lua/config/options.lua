@@ -15,7 +15,7 @@ vim.opt.foldcolumn = "1"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
-vim.opt.guicursor = "" -- use default terminal cursor
+-- vim.opt.guicursor = "" -- use default terminal cursor
 vim.opt.hlsearch = true -- highlight all occurances of search
 vim.opt.ignorecase = true -- ignore case when searching, works with smartcase below
 vim.opt.iskeyword:append("-")
