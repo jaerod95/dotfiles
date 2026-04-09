@@ -26,7 +26,30 @@ require("feline").setup({
   },
 })
 
-require("gitsigns").setup()
+require("gitsigns").setup({
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+    local map = require("config.functions.bind-key")
+    local opts = { buffer = bufnr }
+
+    -- Navigation between hunks
+    map("n", "]h", function() gs.nav_hunk("next") end, "Next git hunk", opts)
+    map("n", "[h", function() gs.nav_hunk("prev") end, "Previous git hunk", opts)
+
+    -- Stage / discard hunks (VS Code-like inline controls)
+    map("n", "<leader>gs", gs.stage_hunk, "[G]it [S]tage hunk", opts)
+    map("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "[G]it [S]tage selected lines", opts)
+    map("n", "<leader>gu", gs.undo_stage_hunk, "[G]it [U]ndo stage hunk", opts)
+    map("n", "<leader>gx", gs.reset_hunk, "[G]it discard hunk", opts)
+    map("v", "<leader>gx", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "[G]it discard selected lines", opts)
+    map("n", "<leader>gS", gs.stage_buffer, "[G]it [S]tage entire buffer", opts)
+    map("n", "<leader>gX", gs.reset_buffer, "[G]it discard entire buffer", opts)
+
+    -- Preview hunk
+    map("n", "<leader>gv", gs.preview_hunk_inline, "[G]it [V]iew hunk inline", opts)
+    map("n", "<leader>gV", gs.preview_hunk, "[G]it [V]iew hunk in popup", opts)
+  end,
+})
 
 -- Diff highlights (matched to delta theme in .gitconfig)
 vim.cmd([[hi DiffAdd guibg=#003500]])

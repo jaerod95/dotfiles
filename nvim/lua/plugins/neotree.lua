@@ -7,6 +7,9 @@ local width = is_widescreen and math.floor(vim.o.columns * width_percentage) or 
 require("neo-tree").setup({
   close_if_last_window = true,
   default_component_configs = {
+    file_size = {
+      enabled = false,
+    },
     indent = {
       indent_size = 2,
       padding = 1,
@@ -57,10 +60,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
 
     if #args == 0 and not start_inital_command then
-      local current_win = vim.api.nvim_get_current_win()
-      require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
+      require("neo-tree.command").execute({ focus = true, dir = vim.fn.getcwd() })
       vim.cmd("set nofoldenable")
-      vim.api.nvim_set_current_win(current_win)
     end
   end,
 })

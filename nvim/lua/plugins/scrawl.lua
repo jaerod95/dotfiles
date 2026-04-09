@@ -1,4 +1,4 @@
-local claude = require("claude-plan")
+local claude = require("scrawl")
 local map = require("config.functions.bind-key")
 
 claude.setup()
