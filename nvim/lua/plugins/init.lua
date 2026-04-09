@@ -1,4 +1,5 @@
 require("plugins.catppuccin")
+require("plugins.claude-plan")
 require("plugins.cmp")
 require("plugins.diffview")
 require("plugins.dadbodui")

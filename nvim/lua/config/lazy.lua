@@ -20,6 +20,7 @@ require("lazy").setup({
     -- Telescope Plugins
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- faster and more accurate fuzzy searching
     { "nvim-telescope/telescope-live-grep-args.nvim" }, -- pass args into telescope for searching by glob, type
+    { "princejoogie/dir-telescope.nvim" }, -- search files within a specific directory
     { "nvim-telescope/telescope.nvim", tag = "0.1.4" }, -- all things searching
     --- Navigation Plugins
     { "folke/flash.nvim", event = "VeryLazy" }, -- jump to location by key combo
@@ -42,7 +43,7 @@ require("lazy").setup({
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- amazing looking colorscheme
     { "kadenbarlow/feline.nvim" }, -- amazing looking status bar
     { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } }, -- makes fold look modern
-    { "lewis6991/gitsigns.nvim" }, -- git integration in buffers
+    { "lewis6991/gitsigns.nvim", commit = "cf1ffe6" }, -- git integration in buffers (pinned before vim.validate breaking change)
     { "luukvbaal/statuscol.nvim" }, -- allows clicking of folds to expand and collapse
     { "maxmellon/vim-jsx-pretty" }, -- make jsx look nice
     { "mbbill/undotree" }, -- visually go back through edits
@@ -69,7 +70,10 @@ require("lazy").setup({
     { "tpope/vim-dadbod" }, -- database viewer
     { "williamboman/mason-lspconfig.nvim" }, -- bridges mason and nvim-lspconfig and makes working with them easy
     { "williamboman/mason.nvim" }, -- package manager for installing lsp servers, linters, formatters etc
+    -- Personal plugins
+    { dir = "~/Documents/work/my-claude-agents" }, -- claude code planning integration
   },
   -- checker = {enabled = true},
+  defaults = { pin = true },
   install = { colorscheme = { "catppuccin" } },
 })
