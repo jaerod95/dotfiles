@@ -34,6 +34,7 @@ require("lazy").setup({
     { "tpope/vim-scriptease", commit = "4cc639d" }, -- open messages buffer and other helpful debugging functions
     { "tpope/vim-sleuth", commit = "be69bff" }, -- automatically detect indentation based on the current file
     { "tpope/vim-surround", commit = "3d188ed" }, -- change and add quotes and braces to selection
+    { "tpope/vim-abolish" }, -- Better context aware find/replace
     -- Plugins for auto-closing blocks, tags, quotes, etc
     { "RRethy/nvim-treesitter-endwise", commit = "8fe8a95" }, -- adds end in ruby
     { "andymass/vim-matchup", commit = "0fb1e6b" }, -- extends vims % jumping to language specific keywords like end
