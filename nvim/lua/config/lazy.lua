@@ -36,7 +36,7 @@ require("lazy").setup({
     { "tpope/vim-surround", commit = "3d188ed" }, -- change and add quotes and braces to selection
     { "tpope/vim-abolish" }, -- Better context aware find/replace
     -- Plugins for auto-closing blocks, tags, quotes, etc
-    { "RRethy/nvim-treesitter-endwise", commit = "8fe8a95" }, -- adds end in ruby
+    { "RRethy/nvim-treesitter-endwise", commit = "a61a9de" }, -- adds end in ruby
     { "andymass/vim-matchup", commit = "0fb1e6b" }, -- extends vims % jumping to language specific keywords like end
     { "echasnovski/mini.pairs", commit = "42387c7" }, -- automatically adds character pairs for quotes and braces etc.
     { "windwp/nvim-ts-autotag", commit = "8e1c0a3", opts = {} }, -- automatically adds html/jsx end tags
@@ -64,8 +64,8 @@ require("lazy").setup({
     { "kristijanhusak/vim-dadbod-ui", commit = "07e92e2" }, -- ui for vim-dadbod which is a database viewer
     { "mhartington/formatter.nvim", commit = "b9d7f85" }, -- automatic code formatting
     { "neovim/nvim-lspconfig", commit = "c588db3" }, -- repository of neovim lsp configurations
-    { "nvim-treesitter/nvim-treesitter", commit = "4916d65" }, -- syntax highlighting
-    { "nvim-treesitter/nvim-treesitter-context", commit = "b0c45ce" }, -- shows code context at top of buffer
+    { "nvim-treesitter/nvim-treesitter", branch = "master", commit = "42fc28b" }, -- syntax highlighting
+    { "nvim-treesitter/nvim-treesitter-context", commit = "64dd4cf" }, -- shows code context at top of buffer
     { "saadparwaiz1/cmp_luasnip", commit = "98d9cb5" }, -- adds a nvim-cmp source for snippets
     { "sindrets/diffview.nvim", commit = "4516612" }, -- used for in editor github PR reviews
     { "tpope/vim-dadbod", commit = "6d1d41d" }, -- database viewer

@@ -3,13 +3,25 @@ local get = require("lib.tables.get")
 local reduce = require("lib.tables.reduce")
 local to_kebab_case = require("lib.strings.to-kebab-case")
 
+local escape_pattern = function(s)
+  return (s:gsub("([%(%)%.%%%+%-%*%?%[%]%^%$])", "%%%1"))
+end
+
+local escape_replacement = function(s)
+  return (s:gsub("%%", "%%%%"))
+end
+
 local unalias = function(file_path)
   local cwd = vim.fn["getcwd"]()
   local aliases = get(jsconfig, { "compilerOptions", "paths" }, {})
   return reduce(entries(aliases), function(acc, pathAlias)
     local alias, paths = unpack(pathAlias)
-    local path = string.gsub(paths[1], "*", "")
-    return string.gsub(acc, alias, cwd .. "/" .. path)
+    if type(paths) ~= "table" or paths[1] == nil then return acc end
+    local alias_prefix = (alias:gsub("%*$", ""))
+    local path_prefix = (paths[1]:gsub("%*$", ""))
+    local pattern = "^" .. escape_pattern(alias_prefix)
+    local replacement = escape_replacement(cwd .. "/" .. path_prefix)
+    return (acc:gsub(pattern, replacement))
   end, file_path)
 end
 
