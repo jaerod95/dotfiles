@@ -15,5 +15,8 @@ load-nvmrc() {
     nvm use --silent default
   fi
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# Only wire up the hook when nvm is actually available.
+if command -v nvm >/dev/null 2>&1; then
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi

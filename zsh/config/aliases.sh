@@ -4,6 +4,7 @@ alias scripts="jq '.scripts' package.json"
 alias uuid="uuidgen | awk '{print tolower(\$0)}' | pbcopy && pbpaste | cat -"
 alias vim="nvim"
 alias vi="nvim"
+alias claudep="claude --dangerously-skip-permissions"
 alias vim-benchmarks="nvim --startuptime /dev/stdout +qall;time vim +q;"
 
 # Fix stupid tmux bug

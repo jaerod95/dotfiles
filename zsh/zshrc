@@ -1,18 +1,21 @@
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="$HOME/.cargo/env:$PATH"
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+  export PATH="$HOME/.lmstudio/bin:$PATH"
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
 fi
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/env:$PATH"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
-source ~/.dotfiles/zsh/p10ktheme.zsh
 
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
@@ -22,22 +25,18 @@ zinit light zsh-users/zsh-autosuggestions
 
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   zinit ice depth=1; zinit light romkatv/powerlevel10k
+  source ~/.dotfiles/zsh/p10ktheme.zsh
 fi
 
 source ~/.dotfiles/zsh/config/config.sh
-source ~/.work.sh
-source ~/.personal.sh
+[ -f ~/.work.sh ] && source ~/.work.sh
+[ -f ~/.personal.sh ] && source ~/.personal.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# bun completions
-[ -s "/Users/jrod/.bun/_bun" ] && source "/Users/jrod/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Added by LM Studio CLI tool (lms)
-export PATH="$PATH:/Users/jrod/.lmstudio/bin"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
