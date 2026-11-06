@@ -47,6 +47,7 @@ map("n", "<leader>bf", ":windo diffthis<CR>", "[B]uffers di[f]f")
 local searchAndReplaceSearchTerm = [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
 map("n", "<leader>sr", searchAndReplaceSearchTerm, "[S]earch and [R]eplace file for current word", { silent = false })
 map("n", "<leader>sd", functions.search_current_directory_contents, "[S]earch file contents in a specific [D]irectory")
+map("n", "<leader>se", functions.search_rpc_endpoints, "[S]earch through RPC [E]ndpoints")
 map("n", "<leader>sk", telescope.keymaps, "[S]earch [K]eymaps/commands")
 map("n", "<leader>sh", telescope.help_tags, "[S]earch [H]elp tags")
 map("n", "<leader>sp", functions.search_project_file_contents, "[S]earch file contents in [P]roject")
@@ -64,6 +65,22 @@ map("n", "<leader>fx", "<cmd>!chmod +x %<CR>", "[F]ile permissions - make e[X]ec
 map("n", "<leader>fj", ":%!jq .<CR>", "[F]ile format [J]son using jq")
 map("n", "<leader>fs", ":%!sleek<CR>", "[F]ile format [S]QL using sleek")
 map("n", "<leader>ff", functions.search_files, "[F]ind [F]iles")
+-- TEMP: fzf-lua file finder to compare speed against telescope <leader>ff
+map("n", "<leader>fz", function()
+  require("fzf-lua").files({
+    cmd = "rg --files --hidden --glob '!**/{.git,node_modules,.cache,.jest-cache}/**' --glob '!**/.claude/worktrees/**'",
+    previewer = false,
+    winopts = { height = 0.4, width = 1, row = 1 },
+  })
+end, "[F]ind files with f[Z]f-lua (temp)")
+-- TEMP: snacks.picker file finder to compare speed against telescope <leader>ff
+map("n", "<leader>fk", function()
+  require("snacks").picker.files({
+    hidden = true,
+    exclude = { ".git", "node_modules", ".cache", ".jest-cache", "**/.claude/worktrees" },
+    layout = { preset = "ivy", preview = false },
+  })
+end, "[F]ind files with snac[K]s.picker (temp)")
 map("n", "<leader>fr", functions.search_recent_files, "[F]ind [R]ecently opened files")
 map("n", "<leader>fp", functions.search_dotfiles, "[Find] file in dotfiles [P]roject")
 map("n", "<leader>fe", ":EslintFixAll<CR>", "[F]ile format/fix with [E]slint")

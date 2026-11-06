@@ -22,6 +22,8 @@ require("lazy").setup({
     { "nvim-telescope/telescope-live-grep-args.nvim", commit = "53e9df5" }, -- pass args into telescope for searching by glob, type
     { "princejoogie/dir-telescope.nvim", commit = "805405b" }, -- search files within a specific directory
     { "nvim-telescope/telescope.nvim", tag = "0.1.4" }, -- all things searching
+    { "ibhagwan/fzf-lua", commit = "eab53ac" }, -- TEMP: testing as faster file finder (<leader>fz)
+    { "folke/snacks.nvim", commit = "882c996", opts = { picker = { enabled = true } } }, -- TEMP: testing as faster file finder (<leader>fk)
     --- Navigation Plugins
     { "folke/flash.nvim", commit = "fcea7ff", event = "VeryLazy" }, -- jump to location by key combo
     { "ThePrimeagen/harpoon", commit = "1bc17e3" }, -- bookmark and jump between several files
@@ -68,6 +70,7 @@ require("lazy").setup({
     { "nvim-treesitter/nvim-treesitter-context", commit = "64dd4cf" }, -- shows code context at top of buffer
     { "saadparwaiz1/cmp_luasnip", commit = "98d9cb5" }, -- adds a nvim-cmp source for snippets
     { "sindrets/diffview.nvim", commit = "4516612" }, -- used for in editor github PR reviews
+    { "folke/which-key.nvim", commit = "3aab214" }, -- popup that shows the available keymaps as you type a prefix
     { "tpope/vim-dadbod", commit = "6d1d41d" }, -- database viewer
     { "williamboman/mason-lspconfig.nvim", commit = "63a3c6a" }, -- bridges mason and nvim-lspconfig and makes working with them easy
     { "williamboman/mason.nvim", commit = "b03fb0f" }, -- package manager for installing lsp servers, linters, formatters etc

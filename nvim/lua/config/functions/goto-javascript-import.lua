@@ -14,15 +14,34 @@ end
 local unalias = function(file_path)
   local cwd = vim.fn["getcwd"]()
   local aliases = get(jsconfig, { "compilerOptions", "paths" }, {})
-  return reduce(entries(aliases), function(acc, pathAlias)
+
+  -- Pick the single most-specific matching alias instead of chaining a gsub
+  -- for every alias. Wildcard aliases (e.g. "#integrations/*") match by
+  -- prefix; exact aliases (e.g. "#" or "#core") match only when the import
+  -- equals the alias exactly. Applying a bare "#" -> "./src" alias as a prefix
+  -- would corrupt "#integrations/..." into "./srcintegrations/...".
+  local best = reduce(entries(aliases), function(acc, pathAlias)
     local alias, paths = unpack(pathAlias)
     if type(paths) ~= "table" or paths[1] == nil then return acc end
+
+    local is_wildcard = alias:sub(-1) == "*"
     local alias_prefix = (alias:gsub("%*$", ""))
     local path_prefix = (paths[1]:gsub("%*$", ""))
-    local pattern = "^" .. escape_pattern(alias_prefix)
-    local replacement = escape_replacement(cwd .. "/" .. path_prefix)
-    return (acc:gsub(pattern, replacement))
-  end, file_path)
+
+    local matches = is_wildcard and file_path:sub(1, #alias_prefix) == alias_prefix
+      or file_path == alias_prefix
+
+    if matches and (acc == nil or #alias_prefix > #acc.alias_prefix) then
+      return { alias_prefix = alias_prefix, path_prefix = path_prefix }
+    end
+    return acc
+  end, nil)
+
+  if best == nil then return file_path end
+
+  local pattern = "^" .. escape_pattern(best.alias_prefix)
+  local replacement = escape_replacement(cwd .. "/" .. best.path_prefix)
+  return (file_path:gsub(pattern, replacement))
 end
 
 return function()
@@ -34,13 +53,14 @@ return function()
     local import_line = vim.api.nvim_get_current_line()
     vim.api.nvim_input("`r")
     vim.schedule(function()
-      local import = string.match(unalias(import_line), '"(.-)"'):gsub("index.js", "")
+      local raw_import = string.match(import_line, '"(.-)"')
+      local import = unalias(raw_import):gsub("index.js", "")
       local prefix = string.sub(import, 1, 1)
       local import_path = prefix == "/" and import or current_file_path .. "/" .. import
       local is_absolute_path = string.match(import, "%.js$")
-      local is_directory = vim.fn.isdirectory(import_path)
+      local import_is_directory = vim.fn.isdirectory(import_path)
 
-      if is_absolute_path or is_directory ~= 1 then
+      if is_absolute_path or import_is_directory ~= 1 then
         vim.cmd("edit " .. import_path)
       else
         local function_folder_path = import_path .. "/" .. function_name

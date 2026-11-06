@@ -7,3 +7,5 @@
 # Docker data
 mysql-data
 swap-pane
+
+**/.claude/settings.local.json

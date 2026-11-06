@@ -91,3 +91,5 @@
 	name = Jason Rodriguez
 	email = jason.eli.rodriguez@gmail.com
   signingkey = 1CC5A9A85E32E4F3 
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials

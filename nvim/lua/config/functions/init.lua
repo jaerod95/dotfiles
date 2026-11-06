@@ -55,6 +55,7 @@ return {
   search_project_html_usages = require("config.functions.search-project-html-usages"),
   search_quickfix_list = require("config.functions.search-quickfix-list"),
   search_recent_files = require("config.functions.search-recent-files"),
+  search_rpc_endpoints = require("config.functions.search-rpc-endpoints"),
   search_code_snippets = require("config.functions.search-code-snippets"),
   split_window_horizontally = require("config.functions.split-window-horizontally"),
   split_window_vertically = require("config.functions.split-window-vertically"),

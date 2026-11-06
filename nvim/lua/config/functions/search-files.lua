@@ -11,6 +11,8 @@ return function()
       "--hidden",
       "--glob",
       "!**/{.git,node_modules,.cache,.jest-cache}/**",
+      "--glob",
+      "!**/.claude/worktrees/**",
     },
   })
 end

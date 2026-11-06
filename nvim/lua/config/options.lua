@@ -1,4 +1,5 @@
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*" }, command = [[%s/\s\+$//e]] }) -- remove extra whitespace in file on save
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, { command = "checktime" }) -- reload files changed outside nvim
 vim.opt.clipboard = "unnamed" -- copy to system clipboard from vim
 vim.g.codeium_enabled = true -- can be toggled with <leader>tc
 vim.g.mapleader = " "

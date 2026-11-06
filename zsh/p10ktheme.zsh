@@ -1659,7 +1659,7 @@
   }
 
   function prompt_branch_name() {
-    p10k segment -f 'green' -e -t "$(git branch 2>/dev/null | sed -n -e 's/^\* \(.*\)/\1/p')"
+    p10k segment -f 'green' -e -t "$(git branch --show-current 2>/dev/null)"
   }
 
 
