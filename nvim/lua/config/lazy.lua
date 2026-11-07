@@ -70,7 +70,6 @@ require("lazy").setup({
     { "nvim-treesitter/nvim-treesitter-context", commit = "64dd4cf" }, -- shows code context at top of buffer
     { "saadparwaiz1/cmp_luasnip", commit = "98d9cb5" }, -- adds a nvim-cmp source for snippets
     { "sindrets/diffview.nvim", commit = "4516612" }, -- used for in editor github PR reviews
-    { "folke/which-key.nvim", commit = "3aab214" }, -- popup that shows the available keymaps as you type a prefix
     { "tpope/vim-dadbod", commit = "6d1d41d" }, -- database viewer
     { "williamboman/mason-lspconfig.nvim", commit = "63a3c6a" }, -- bridges mason and nvim-lspconfig and makes working with them easy
     { "williamboman/mason.nvim", commit = "b03fb0f" }, -- package manager for installing lsp servers, linters, formatters etc

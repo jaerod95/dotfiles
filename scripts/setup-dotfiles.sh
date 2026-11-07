@@ -1,4 +1,5 @@
 ln -sf $PWD/kitty.conf ~/.config/kitty/kitty.conf
+mkdir -p ~/.config/ghostty && ln -sf $PWD/ghostty/config ~/.config/ghostty/config
 ln -sf $PWD/tmux.conf ~/.tmux.conf
 
 ln -sf $PWD/aerospace.toml ~/.aerospace.toml

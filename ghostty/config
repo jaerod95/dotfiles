@@ -1,0 +1,52 @@
+# Ghostty config — mirrors kitty.conf
+
+# Font -----------------------------------------------------------------------
+font-family = FiraCode Nerd Font Mono
+font-style = Bold
+font-size = 16
+# ligatures on (kitty: disable_ligatures never) — Ghostty default
+
+# Window / macOS -------------------------------------------------------------
+macos-titlebar-style = transparent
+macos-option-as-alt = true
+quit-after-last-window-closed = true
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true
+window-padding-color = extend
+background-opacity = 1
+confirm-close-surface = false
+
+# Bell (kitty: enable_audio_bell no) ------------------------------------------
+bell-features = no-system,no-audio
+
+# Scrollback (kitty: -1 = unlimited; Ghostty limit is in bytes) ---------------
+scrollback-limit = 1000000000
+
+# Keybinds -------------------------------------------------------------------
+keybind = cmd+f=text:\x06
+keybind = cmd+h=text:\x08
+
+# Theme (kitty colors) -------------------------------------------------------
+background = #0F111A
+foreground = #b1b1b1
+cursor-color = #cccccc
+selection-background = #fffacd
+selection-foreground = #000000
+
+palette = 0=#464B5D
+palette = 1=#f38ba8
+palette = 2=#a6e3a1
+palette = 3=#fab387
+palette = 4=#5E81AC
+palette = 5=#cba6f7
+palette = 6=#89dceb
+palette = 7=#dddddd
+palette = 8=#464B5D
+palette = 9=#f38ba8
+palette = 10=#a6e3a1
+palette = 11=#fab387
+palette = 12=#5E81AC
+palette = 13=#cba6f7
+palette = 14=#89dceb
+palette = 15=#ffffff

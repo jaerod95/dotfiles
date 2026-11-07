@@ -10,12 +10,16 @@ export GPG_TTY=$(tty) # Random env variable needed for GPG commit signing
 
 # Initialization ------------------------------------------------------------------------------------
 if [ $commands[rbenv] ]; then eval "$(rbenv init -)"; fi
-if [ $commands[pyenv] ]; then eval "$(pyenv init --path)"; fi
+if [ $commands[pyenv] ]; then eval "$(pyenv init - zsh)"; fi
 if [ $commands[atuin] ]; then eval "$(atuin init zsh --disable-up-arrow)"; fi
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 # Options -------------------------------------------------------------------------------------------
