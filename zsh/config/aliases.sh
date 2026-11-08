@@ -5,6 +5,7 @@ alias uuid="uuidgen | awk '{print tolower(\$0)}' | pbcopy && pbpaste | cat -"
 alias vim="nvim"
 alias vi="nvim"
 alias vim-benchmarks="nvim --startuptime /dev/stdout +qall;time vim +q;"
+alias claudep="claude --dangerously-skip-permissions"
 
 # Fix stupid tmux bug
 alias tmux="tmux -f ~/.tmux.conf"

@@ -15,6 +15,7 @@ brew 'neovim'
 brew 'pyenv' # python version manager
 brew 'rbenv' # ruby version manager
 brew 'ripgrep'
+brew 'tailscale' # tailscaled daemon + CLI (open-source variant, no GUI app)
 brew 'tmux'
 
 cask 'font-droid-sans-mono-nerd-font'
