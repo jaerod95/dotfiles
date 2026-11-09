@@ -50,7 +50,7 @@ require("lazy").setup({
     { "luukvbaal/statuscol.nvim", commit = "c46172d" }, -- allows clicking of folds to expand and collapse
     { "maxmellon/vim-jsx-pretty", commit = "6989f16" }, -- make jsx look nice
     { "mbbill/undotree", commit = "6fa6b57" }, -- visually go back through edits
-    { "norcalli/nvim-colorizer.lua", commit = "a065833" }, -- highlight hex and colors in buffers
+    { "catgoose/nvim-colorizer.lua", commit = "72a05f6" }, -- highlight hex and colors in buffers (maintained fork of norcalli/nvim-colorizer.lua)
     { "nvim-neo-tree/neo-tree.nvim", commit = "84c75e7", branch = "v3.x", dependencies = { { "MunifTanjim/nui.nvim", commit = "de74099" } } }, -- filetree sidebar
     { "nvim-tree/nvim-web-devicons", commit = "95b7a00" }, -- amazing looking icons
     { "MeanderingProgrammer/render-markdown.nvim", commit = "640a3ec", ft = { "markdown", "mdx" }, cmd = "RenderMarkdown", opts = { file_types = { "markdown", "mdx" } } }, -- render markdown in-buffer (toggle with <leader>tm)
