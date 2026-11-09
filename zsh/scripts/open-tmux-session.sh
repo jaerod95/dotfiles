@@ -3,7 +3,9 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(echo -e "$HOME/.dotfiles\n$(find ~/Documents/work ~/Documents/personal -mindepth 0 -maxdepth 1 -type d)" | fzf)
+  # also list each client one level down (~/Documents/work/business/clients/<client>), but nothing deeper
+  clients_dir="$HOME/Documents/work/business/clients"
+  selected=$(echo -e "$HOME/.dotfiles\n$(find ~/Documents/work ~/Documents/personal -mindepth 0 -maxdepth 1 -type d)\n$(find "$clients_dir" -mindepth 1 -maxdepth 1 -type d 2>/dev/null)" | sed '/^$/d' | fzf)
 fi
 
 if [[ -z $selected ]]; then
