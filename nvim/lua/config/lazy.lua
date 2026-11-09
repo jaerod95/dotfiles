@@ -53,6 +53,7 @@ require("lazy").setup({
     { "norcalli/nvim-colorizer.lua", commit = "a065833" }, -- highlight hex and colors in buffers
     { "nvim-neo-tree/neo-tree.nvim", commit = "84c75e7", branch = "v3.x", dependencies = { { "MunifTanjim/nui.nvim", commit = "de74099" } } }, -- filetree sidebar
     { "nvim-tree/nvim-web-devicons", commit = "95b7a00" }, -- amazing looking icons
+    { "MeanderingProgrammer/render-markdown.nvim", commit = "640a3ec", ft = { "markdown", "mdx" }, cmd = "RenderMarkdown", opts = { file_types = { "markdown", "mdx" } } }, -- render markdown in-buffer (toggle with <leader>tm)
     { "pixelastic/vim-undodir-tree", commit = "f5cd177" }, -- fixes an issue with undo behavior with file names that are too long
     -- IDE Functionality
     -- { "Exafunction/codeium.vim", tag = "1.8.30" }, -- AI coding assistant

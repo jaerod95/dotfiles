@@ -34,6 +34,7 @@ map("n", "<leader>tw", functions.toggle_line_wrap, "[T]oggle line [W]rap")
 map("n", "<leader>tf", functions.toggle_formatting_on_save, "[T]oggle automatic [F]ormatting on save")
 map("n", "<leader>ta", functions.toggle_ai_suggestions, "[T]oggle [C]odeium")
 map("n", "<leader>tt", ":Trouble diagnostics<CR>", "[T]oggle [T]rouble aka Show file lsp diagnostics")
+map("n", "<leader>tm", ":RenderMarkdown toggle<CR>", "[T]oggle [M]arkdown rendering")
 
 map("n", "<leader>pd", ":Telescope dir find_files<CR>", "search files in a [P]roject [D]irectory")
 map("n", "<leader>pf", functions.search_project_files, "search through [P]roject [F]iles")
