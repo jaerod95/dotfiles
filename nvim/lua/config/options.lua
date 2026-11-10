@@ -35,7 +35,40 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 2 -- number of spaces that a tab counts for
 vim.opt.termguicolors = true
 vim.opt.title = true -- enables showing title in tmux pane status bar
-vim.opt.titlestring = "%{expand('%:p:~:.:h:h:t')}/%{expand('%:p:~:.:h:t')}/%{expand('%:t')}%r%m"
+-- Files show as dir/dir/file. Terminal buffers (e.g. Claude Code opened through scrawl) would show
+-- their whole "term://...//pid:env -u TMUX ... claude --flags" name, so show the title the program
+-- sets instead (Claude sets "✳ <conversation topic>"), falling back to the program's name.
+local file_titlestring = "%{expand('%:p:~:.:h:h:t')}/%{expand('%:p:~:.:h:t')}/%{expand('%:t')}%r%m"
+function _G.nvim_titlestring()
+  if vim.bo.buftype ~= "terminal" then return file_titlestring end
+
+  local title = vim.b.term_title or ""
+  -- b:term_title starts out as the buffer name until the program sets its own title
+  if title ~= "" and not title:match("^term://") then return (title:gsub("%%", "%%%%")) end
+
+  -- first word of the command that isn't env, an env flag or VAR=value
+  local cmd = vim.api.nvim_buf_get_name(0):match("^term://.-//%d+:(.*)$") or ""
+  local skip_next = false
+  for word in cmd:gmatch("%S+") do
+    if skip_next then
+      skip_next = false
+    elseif word == "-u" then
+      skip_next = true
+    elseif word ~= "env" and not word:match("^%-") and not word:match("^[%w_]+=") then
+      return (vim.fn.fnamemodify(word, ":t"):gsub("%%", "%%%%"))
+    end
+  end
+  return "terminal"
+end
+vim.opt.titlestring = "%{%v:lua.nvim_titlestring()%}"
+-- nvim saves a program's new title in b:term_title but doesn't redraw the title until the next
+-- keypress, and Claude retitles while you're idle, so refresh the title whenever it changes
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("TerminalTitle", { clear = true }),
+  callback = function()
+    vim.cmd([[call dictwatcheradd(b:, 'term_title', {-> timer_start(0, {-> execute('let &titlestring = &titlestring')})})]])
+  end,
+})
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.updatetime = 50
