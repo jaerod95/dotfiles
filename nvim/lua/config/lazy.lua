@@ -21,7 +21,7 @@ require("lazy").setup({
     { "nvim-telescope/telescope-fzf-native.nvim", commit = "6fea601", build = "make" }, -- faster and more accurate fuzzy searching
     { "nvim-telescope/telescope-live-grep-args.nvim", commit = "53e9df5" }, -- pass args into telescope for searching by glob, type
     { "princejoogie/dir-telescope.nvim", commit = "805405b" }, -- search files within a specific directory
-    { "nvim-telescope/telescope.nvim", tag = "0.1.4" }, -- all things searching
+    { "nvim-telescope/telescope.nvim", tag = "v0.2.2" }, -- all things searching
     { "ibhagwan/fzf-lua", commit = "eab53ac" }, -- TEMP: testing as faster file finder (<leader>fz)
     { "folke/snacks.nvim", commit = "882c996", opts = { picker = { enabled = true } } }, -- TEMP: testing as faster file finder (<leader>fk)
     --- Navigation Plugins
