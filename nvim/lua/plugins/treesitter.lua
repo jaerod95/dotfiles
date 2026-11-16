@@ -1,13 +1,9 @@
-require("nvim-treesitter.configs").setup({
-  endwise = {
-    enable = true,
-  },
-  matchup = {
-    enable = true, -- mandatory, false will disable the whole extension
-    disable = { "ruby" }, -- optional, list of language that will be disabled
-  },
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = {
+-- nvim-treesitter (main branch) only installs parsers and queries. Highlighting is
+-- started by neovim itself via vim.treesitter.start(). endwise and matchup attach on
+-- their own (matchup's ruby opt-out lives in its lazy spec `init`).
+local ts = require("nvim-treesitter")
+
+ts.install({
     "bash",
     "c",
     "c_sharp",
@@ -34,20 +30,33 @@ require("nvim-treesitter.configs").setup({
     "tsx",
     "query",
     "vim",
-  },
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
-  highlight = {
-    enable = true,
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = { "javascript", "typescript", "jsx", "tsx" },
-  },
+})
+
+-- Keep regex syntax running alongside treesitter for these (vim-jsx-pretty relies on it)
+local regex_syntax_filetypes = {
+  javascript = true,
+  javascriptreact = true,
+  typescript = true,
+  typescriptreact = true,
+}
+
+local start = function(buf, lang)
+  if not vim.api.nvim_buf_is_valid(buf) then return end
+  if not pcall(vim.treesitter.start, buf, lang) then return end
+  if regex_syntax_filetypes[vim.bo[buf].filetype] then vim.bo[buf].syntax = "ON" end
+end
+
+-- Start highlighting on every filetype with a parser, installing missing ones on demand
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("__treesitter", { clear = true }),
+  callback = function(args)
+    local lang = vim.treesitter.language.get_lang(args.match)
+    if not lang then return end
+    if vim.treesitter.language.add(lang) then return start(args.buf, lang) end
+    if vim.tbl_contains(ts.get_available(), lang) then
+      ts.install(lang):await(function() vim.schedule(function() start(args.buf, lang) end) end)
+    end
+  end,
 })
 
 -- https://joschua.io/posts/2023/06/22/set-up-nvim-for-astro/
