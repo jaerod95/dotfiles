@@ -19,7 +19,7 @@ if [ -d "$HOME/.nvm" ]; then
 fi
 FNM_PATH="/opt/homebrew/opt/fnm/bin"
 if [ -d "$FNM_PATH" ]; then
-  eval "$(fnm env --use-on-cd --shell zsh)"
+  eval "$(fnm env --use-on-cd --log-level quiet --shell zsh)"
 fi
 
 # Options -------------------------------------------------------------------------------------------

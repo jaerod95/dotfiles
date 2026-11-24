@@ -9,3 +9,5 @@ mysql-data
 swap-pane
 
 **/.claude/settings.local.json
+
+**/.claude/.cc-writes/
