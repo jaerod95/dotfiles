@@ -47,10 +47,6 @@
       {
         "language": "sql",
         "path": "./sql.json"
-      },
-      {
-        "language": "oil",
-        "path": "./oil.json"
       }
     ]
   }

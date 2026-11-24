@@ -44,7 +44,7 @@ local function node_text(node, bufnr)
   return text
 end
 
--- Every file here is index.js, so the parent directory is the real identifier.
+-- index.ts/index.js files are named after their folder, so use the folder as the module name.
 local function module_name(bufnr)
   local path = api.nvim_buf_get_name(bufnr)
   if path == "" then

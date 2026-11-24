@@ -20,14 +20,42 @@ require("mason-lspconfig").setup({
   },
 })
 
+-- Per-project opt-out: { "eslint": { "disable": true } } in .neovim.json
+if get(project_config, { "eslint", "disable" }) then vim.lsp.enable("eslint", false) end
+
+local flat_eslint_configs = {
+  "eslint.config.js",
+  "eslint.config.mjs",
+  "eslint.config.cjs",
+  "eslint.config.ts",
+  "eslint.config.mts",
+  "eslint.config.cts",
+}
+local legacy_eslint_configs = {
+  ".eslintrc",
+  ".eslintrc.js",
+  ".eslintrc.cjs",
+  ".eslintrc.json",
+  ".eslintrc.yaml",
+  ".eslintrc.yml",
+}
+local has_any = function(root, names)
+  return vim.iter(names):any(function(name) return vim.uv.fs_stat(root .. "/" .. name) ~= nil end)
+end
+
+-- ESLint 9 only reads flat config by default and errors out on a repo that still has an .eslintrc,
+-- so fall back to eslintrc mode when the project root has a legacy config and no flat one.
+local default_eslint_before_init = vim.lsp.config.eslint and vim.lsp.config.eslint.before_init
 vim.lsp.config("eslint", {
-  on_init = function(client)
-    if get(project_config, { "eslint", "use_global_node_module" }) then
-      local bin = os.getenv("NVM_BIN")
-      client.config.settings.nodePath = bin .. "/../lib/node_modules"
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+  before_init = function(params, config)
+    if default_eslint_before_init then default_eslint_before_init(params, config) end
+    local root = config.root_dir
+    if root and has_any(root, legacy_eslint_configs) and not has_any(root, flat_eslint_configs) then
+      config.settings = config.settings or {}
+      config.settings.useFlatConfig = false
+      config.settings.experimental =
+        vim.tbl_extend("force", config.settings.experimental or {}, { useFlatConfig = false })
     end
-    return true
   end,
   on_attach = function(client, buffer)
     if not get(project_config, { "eslint", "disable_auto_fix" }) then

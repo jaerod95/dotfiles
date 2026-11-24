@@ -1,15 +1,11 @@
-local get = require("lib.tables.get")
+local send_to_tmux_pane = require("lib.send-to-tmux-pane")
+local test_command = require("lib.javascript.test-command")
+local test_file = require("lib.javascript.test-file")
 
+-- Runs the current test file (or the current source file's test) in the tmux pane to the right.
 return function()
   vim.cmd("Neotree close")
-  local enter = " 'C-m' ;"
-
-  local default_run_test_command = "'yarn test " .. vim.fn.expand("%:p") .. "'"
-  local run_test_command = get(project_config, { "debug_test", "command" }, default_run_test_command)
-
-  vim.cmd(
-    ":silent !tmux list-panes | wc -l | grep 2 || (tmux split-window -h && tmux select-pane -t 1); tmux send-keys -t 2 "
-      .. run_test_command
-      .. enter
-  )
+  local file = vim.fn.expand("%:p")
+  if not test_file.is_test(file) then file = test_file.test_for(file) end
+  send_to_tmux_pane(test_command(file))
 end
