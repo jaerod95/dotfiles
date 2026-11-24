@@ -61,14 +61,8 @@ function _G.nvim_titlestring()
   return "terminal"
 end
 vim.opt.titlestring = "%{%v:lua.nvim_titlestring()%}"
--- nvim saves a program's new title in b:term_title but doesn't redraw the title until the next
--- keypress, and Claude retitles while you're idle, so refresh the title whenever it changes
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = vim.api.nvim_create_augroup("TerminalTitle", { clear = true }),
-  callback = function()
-    vim.cmd([[call dictwatcheradd(b:, 'term_title', {-> timer_start(0, {-> execute('let &titlestring = &titlestring')})})]])
-  end,
-})
+-- Don't put a dictwatcher on b:term_title to refresh the title while idle: nvim 0.12 aborts
+-- (SIGABRT in loop_poll_events) when the title changes. The title updates on the next keypress.
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.updatetime = 50
